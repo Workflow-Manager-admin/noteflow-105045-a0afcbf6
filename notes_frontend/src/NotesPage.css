@@ -1,0 +1,113 @@
+.notes-layout {
+  display: flex;
+  align-items: stretch;
+  min-height: 84vh;
+  max-width: 1050px;
+  margin: 0 auto;
+  background: var(--bg-secondary);
+  border-radius: 11px;
+  margin-top: 26px;
+  box-shadow: 0 2px 18px #90a8cb13;
+  position: relative;
+  padding-bottom: 55px;
+}
+
+/* Sidebar for categories/tags */
+.sidebar {
+  min-width: 160px;
+  max-width: 190px;
+  background: #f3f6fa;
+  border-right: 1px solid var(--border-color);
+  border-radius: 11px 0 0 11px;
+  padding: 1.7em 1em;
+  display: flex;
+  flex-direction: column;
+  gap: .5em;
+  align-items: flex-start;
+}
+
+.sidebar h3 {
+  font-size: 1.08em;
+  margin-bottom: 9px;
+  color: var(--primary-color);
+  font-weight: 700;
+  letter-spacing: .01em;
+}
+
+/* Main notes area */
+.main-notes {
+  flex: 1 1 auto;
+  padding: 1.85em 2.3em;
+  overflow-x: auto;
+  background: var(--bg-secondary);
+  border-radius: 0 11px 11px 0;
+  min-height: 83vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.notes-header-bar {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+/* Notes list */
+.notes-list {
+  margin-top: 1em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(270px,1fr));
+  gap: 17px;
+  align-items: start;
+}
+
+.note-card {
+  background: #fff;
+  border: 1.1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgb(30 100 180 / 0.03);
+  padding: 1.12em 1.28em 1.28em 1.18em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7em;
+  min-width: 0;
+  word-wrap: break-word;
+  position: relative;
+  transition: box-shadow .13s;
+}
+.note-card:hover { box-shadow: 0 6px 19px #2bc66612; }
+.note-card-content header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3px;
+}
+.note-card-content h4 {
+  margin: 0;
+  font-size: 1.12em;
+  font-weight: 700;
+}
+.note-body {
+  margin: 6px 0 3px 0;
+  font-size: .98em;
+  color: var(--text-primary);
+  min-height: 16px;
+}
+.note-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+@media (max-width: 900px) {
+  .notes-layout { flex-direction: column; padding-bottom: 40px; }
+  .sidebar { flex-direction: row; flex-wrap: wrap; padding: 0.7em 1em 0.6em 1em; min-width: 0; max-width: unset; border-radius: 11px 11px 0 0;}
+  .main-notes { border-radius: 0 0 11px 11px; padding: 1em 1vw; }
+  .notes-list { gap: 11px; }
+}
+@media (max-width: 660px) {
+  .sidebar, .main-notes { padding: 0.6em 1vw; }
+  .note-card { padding: .7em .87em .93em .8em; }
+}
